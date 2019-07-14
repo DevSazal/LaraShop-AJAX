@@ -13,7 +13,7 @@ class LiveSearchController extends Controller
       $array['products'] = Product::all();
       return view('live-shop')->with($array);
     }
-    
+
     public function fetch(Request $request){
       if($request->ajax()){
         $output = '';
@@ -24,6 +24,7 @@ class LiveSearchController extends Controller
                   ->get();
         }else{
           $data = DB::table('products')
+                  ->where('category_id', '=',$request->get('cat'))
                   ->orderBy('id','desc')
                   ->get();
         }

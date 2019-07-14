@@ -29,6 +29,7 @@
                             <form>
                                 <input type="search" name="search" id="psearch" placeholder="Type for live search" autocomplete="off">
                                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <input type="hidden" name="_cat" value="1">
 
                                 @csrf
                             </form>
@@ -259,10 +260,11 @@
   $(document).ready(function(){
     fetch_search_data();
     function fetch_search_data(query = ''){
+      var _cat = $('input[name="_cat"]').val();
       $.ajax({
         url: "{{ route('LiveSearch.action') }}",
         methed: 'GET',
-        data: {query:query},
+        data: {query:query, cat:_cat},
         dataType: 'json',
         success: function(data){
           $('#fetchDataList').html(data.total_data);
