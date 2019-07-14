@@ -22,3 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/autocomplete/fetch', 'DefaultController@fetch')->name('autocomplete.fetch');
+
+// Live Search Shop Page
+Route::get('/live', 'LiveSearchController@liveshop')->name('liveshop');
+Route::get('/live/fetch', 'LiveSearchController@fetch')->name('LiveSearch.action');
