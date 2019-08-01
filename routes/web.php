@@ -17,6 +17,10 @@
 Route::get('/', 'DefaultController@index');
 Route::get('/single', 'DefaultController@singleProduct');
 Route::get('/shop', 'DefaultController@shop');
+Route::get('/scraper', 'DefaultController@scraperView');
+Route::get('/picker', 'DefaultController@scraperFetch');
+Route::get('/jsonpicker', 'JsonPickerController@json');
+Route::get('/get-json-item-price', 'JsonPickerController@getProductPrice');
 
 Auth::routes();
 
